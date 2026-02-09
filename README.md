@@ -75,31 +75,14 @@ PATCH /v1/agents/{agent_id}
 
 The whole point is: attached = in context, detached = free. If you attach everything, you've just made expensive memory blocks with extra steps.
 
-## Included: Forge Tool
+## Self-Service with Forge Tool
 
-A backpack without hands to create it is just documentation. This repo includes **forge-tool** — a meta-tool that lets agents create, update, attach, and detach tools at runtime. With forge-tool attached, the agent can create its own backpacks without human help.
-
-### forge-tool operations
-
-| Action | What it does |
-|---|---|
-| `create` | Create a new tool from Python source code, optionally attach to an agent |
-| `update` | Update a tool's source code or description (write to backpack) |
-| `attach` | Attach a tool to an agent (load backpack into context) |
-| `detach` | Detach a tool from an agent (free context tokens) |
-| `list` | List all available tools |
-
-### Installation
-
-See `forge-tool/` directory for the full source code and setup instructions.
-
-### ⚠️ Security Note
-
-forge-tool gives the agent the ability to create arbitrary Python code as executable tools. **Only give it to trusted agents.** The API key in the tool's environment determines permissions. Review what agents create periodically via `GET /v1/tools/`.
+Backpack is most useful when the agent can create its own backpacks. [forge-tool](https://github.com/audrebytes/forge-tool) is a meta-tool that lets agents create, update, attach, and detach tools at runtime. With both, the agent manages its own working memory without human help.
 
 ## Related
 
 - [hold-my-beer](https://github.com/audrebytes/hold-my-beer) — Platform-agnostic file-based working memory (for agents WITH filesystem access)
+- [forge-tool](https://github.com/audrebytes/forge-tool) — Meta-tool that lets agents create tools at runtime (recommended companion)
 
 ## How This Relates to hold-my-beer
 
